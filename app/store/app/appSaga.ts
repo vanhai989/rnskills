@@ -36,7 +36,23 @@ function* startupRequest() {
   }
 }
 
+function* createPostRequest({payload, resolve, failed}) {
+  try {
+    const data = yield put(appActions.createPostRequest(payload));
+    if (resolve) {
+      yield resolve(data);
+    }
+  } catch (error) {
+    if (failed) {
+      yield failed();
+    }
+  }
+}
+
 export default function* watcherSaga() {
   yield all([yield takeLatest(appTypes.GET_USERS_REQUEST, getUsersRequest)]);
   yield all([yield takeLatest(appTypes.STARTUP_REQUEST, startupRequest)]);
+  yield all([
+    yield takeLatest(appTypes.CREATE_POST_REQUEST, createPostRequest),
+  ]);
 }

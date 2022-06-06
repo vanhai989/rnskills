@@ -20,7 +20,7 @@ const LoginScreen = () => {
   const [password, setPassword] = useState('');
 
   const loginSuccess = () => {
-    navigation.navigate('AppStack');
+    navigation.navigate('RootStack');
   };
   const loginFailed = () => {};
 

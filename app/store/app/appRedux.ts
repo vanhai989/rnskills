@@ -3,9 +3,10 @@ import {createReducer, createActions} from 'reduxsauce';
 /* ------------- Types and Action Creators ------------- */
 
 const {Types, Creators} = createActions({
-  getUsersRequest: ['resolve', 'reject'],
   startupRequest: null,
   startupSuccess: null,
+  getUsersRequest: ['resolve', 'reject'],
+  createPostRequest: ['resolve', 'reject'],
 });
 
 export const appTypes = Types;
@@ -14,6 +15,7 @@ export default Creators;
 export const INITIAL_STATE = {
   user: {},
   isReady: false,
+  isShowTabBar: true,
 };
 
 /* ------------- Reducers ------------- */
@@ -28,9 +30,13 @@ export const startupRequest = (state: any) => {
 export const startupSuccess = (state: any) => {
   return {...state, isReady: true};
 };
+export const createPostRequest = (state: any) => {
+  return {...state};
+};
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.GET_USERS_REQUEST]: getUsersRequest,
   [Types.STARTUP_SUCCESS]: startupSuccess,
+  [Types.CREATE_POST_REQUEST]: createPostRequest,
 });

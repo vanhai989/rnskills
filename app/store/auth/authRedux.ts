@@ -8,6 +8,8 @@ const {Types, Creators} = createActions({
   loginRequestSuccess: ['payload'],
   updateExpiredToken: ['isExpired'],
   register: ['payload', 'resolve', 'reject'],
+  logoutRequest: ['resolve', 'reject'],
+  logoutSuccessRequest: null,
 });
 
 export const authTypes = Types;
@@ -48,6 +50,14 @@ export const register = (state: any) => {
   return {...state};
 };
 
+export const logoutRequest = (state: any) => {
+  return {...state};
+};
+
+const logoutSuccessRequest = (state: any) => {
+  return {...state, token: '', refreshToken: ''};
+};
+
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
@@ -55,4 +65,6 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.LOGIN_REQUEST_SUCCESS]: loginRequestSuccess,
   [Types.UPDATE_EXPIRED_TOKEN]: updateExpiredToken,
   [Types.REGISTER]: register,
+  [Types.LOGOUT_REQUEST]: logoutRequest,
+  [Types.LOGOUT_SUCCESS_REQUEST]: logoutSuccessRequest,
 });

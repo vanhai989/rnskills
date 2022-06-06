@@ -35,7 +35,22 @@ function* registerRequest({payload, resolve, reject}: any) {
   }
 }
 
+function* logoutRequest({resolve, reject}: any) {
+  try {
+    yield call(authApi.logout);
+    yield put(authActions.logoutSuccessRequest());
+  } catch (error) {
+    if (reject) {
+      reject();
+    }
+    const errorMessage = get(error, ['message'], 'unknown');
+    if (errorMessage) {
+    }
+  }
+}
+
 export default function* watcherSaga() {
   yield all([yield takeLatest(authTypes.LOGIN_REQUEST, loginRequest)]);
   yield all([yield takeLatest(authTypes.REGISTER, registerRequest)]);
+  yield all([yield takeLatest(authTypes.LOGOUT_REQUEST, logoutRequest)]);
 }

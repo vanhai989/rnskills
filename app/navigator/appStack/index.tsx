@@ -2,21 +2,15 @@
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import * as React from 'react';
-import BottomStack from '../bottomStack';
 import homeScreen from './screens/homeScreen';
 
 const Stack = createNativeStackNavigator();
 
 function AppStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="bottom">
       <Stack.Screen
-        name="bottomStack"
-        component={BottomStack}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="AppNavigator"
+        name="home"
         component={homeScreen}
         options={{headerShown: false}}
       />
