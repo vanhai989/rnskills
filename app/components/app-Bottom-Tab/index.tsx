@@ -19,14 +19,8 @@ const {
 } = Images;
 
 function AppTabBottom({state, descriptors, navigation}) {
-  console.log('state', state);
-  console.log('descriptors', descriptors);
-  console.log('navigation', navigation);
   const [show, setShow] = useState(true);
   const isShowTabBar = useSelector(state => state?.app?.isShowTabBar);
-
-  console.log('isShowTabBar', isShowTabBar);
-  
   useEffect(() => {
     const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
       setShow(false);

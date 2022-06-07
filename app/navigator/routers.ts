@@ -5,4 +5,5 @@ export const Routers = {
   Account: 'Account' as 'Account',
   authNavigator: 'authNavigator' as 'authNavigator',
   RootStack: 'RootStack' as 'RootStack',
+  CreatePost: 'CreatePost' as 'CreatePost',
 };

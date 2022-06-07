@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
 import appConfigs from '../../config/appConfigs';
-import authActions from '../store/auth/authRedux';
+import authActions, { authTypes } from '../store/auth/authRedux';
 
 /** ================================ */
 let store = '';
@@ -13,6 +14,8 @@ const api = axios.create({
 api.interceptors.response.use(
   (response: any) => response.data,
   (error: any) => {
+    console.log('error--', error);
+    
     if (error?.response?.status === 401) {
       let token = '';
       const authTokenState = store.getState()?.auth?.token;
@@ -28,6 +31,10 @@ api.interceptors.response.use(
           code: error.response.status,
         });
       }
+    }
+    if (error?.response?.status === 403) {
+      const dispatch = useDispatch();
+      dispatch(authActions.logoutSuccessRequest());
     }
     if (error.response) {
       return Promise.reject({

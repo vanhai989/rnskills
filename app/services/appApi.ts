@@ -5,10 +5,14 @@ async function getUsers(params: any) {
 }
 
 async function createPost(params: any) {
-  return api.get('api/posts', params);
+  return api.post('api/posts', params);
 }
 
+async function getPosts() {
+  return api.get('api/posts');
+}
 export default {
   getUsers,
   createPost,
+  getPosts,
 };

@@ -9,9 +9,7 @@ import {setAuthorizationToken} from '../../services/baseApi';
 function* getUsersRequest({resolve, reject}: any) {
   try {
     const data = yield call(appApi.getUsers);
-    console.log('data', data);
-
-    resolve && resolve(privacyData);
+    resolve && resolve(data);
   } catch (error) {
     if (reject) {
       reject();
@@ -38,7 +36,20 @@ function* startupRequest() {
 
 function* createPostRequest({payload, resolve, failed}) {
   try {
-    const data = yield put(appActions.createPostRequest(payload));
+    const data = yield call(appApi.createPost, payload);
+    if (resolve) {
+      yield resolve(data);
+    }
+  } catch (error) {
+    if (failed) {
+      yield failed();
+    }
+  }
+}
+
+function* getPostRequest({resolve, failed}) {
+  try {
+    const data = yield call(appApi.getPosts);
     if (resolve) {
       yield resolve(data);
     }
@@ -55,4 +66,5 @@ export default function* watcherSaga() {
   yield all([
     yield takeLatest(appTypes.CREATE_POST_REQUEST, createPostRequest),
   ]);
+  yield all([yield takeLatest(appTypes.GET_POSTS_REQUEST, getPostRequest)]);
 }

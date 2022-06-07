@@ -6,7 +6,8 @@ const {Types, Creators} = createActions({
   startupRequest: null,
   startupSuccess: null,
   getUsersRequest: ['resolve', 'reject'],
-  createPostRequest: ['resolve', 'reject'],
+  createPostRequest: ['payload', 'resolve', 'reject'],
+  getPostsRequest: ['resolve', 'reject'],
 });
 
 export const appTypes = Types;
@@ -33,10 +34,14 @@ export const startupSuccess = (state: any) => {
 export const createPostRequest = (state: any) => {
   return {...state};
 };
+export const getPostsRequest = (state: any) => {
+  return {...state};
+};
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.GET_USERS_REQUEST]: getUsersRequest,
   [Types.STARTUP_SUCCESS]: startupSuccess,
   [Types.CREATE_POST_REQUEST]: createPostRequest,
+  [Types.GET_POSTS_REQUEST]: getPostsRequest,
 });

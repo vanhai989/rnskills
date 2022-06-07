@@ -22,9 +22,6 @@ function AppNavigator() {
     SplashScreen.hide();
   }, []);
   const state = useSelector(state => state.auth);
-  console.log('state', state.token);
-  console.log('isEmpty(state.token)', isEmpty(state.token));
-
   const TransitionScreenOptions = {
     ...TransitionPresets.SlideFromRightIOS, // This is where the transition happens
   };

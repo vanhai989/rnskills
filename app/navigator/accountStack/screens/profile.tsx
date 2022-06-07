@@ -35,6 +35,7 @@ export default function ProfileScreen() {
 
   const onLogout = () => {
     dispatch(authActions.logoutRequest(logoutSuccess, logoutFailed));
+    //  dispatch(authActions.logoutSuccessRequest());
   };
   return (
     <SafeAreaView style={styles.container}>
