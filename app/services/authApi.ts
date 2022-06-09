@@ -12,8 +12,13 @@ async function logout(params: any) {
   return api.delete('/api/sessions', params);
 }
 
+async function refreshToken(params: any) {
+  return api.post('/api/refreshToken', params);
+}
+
 export default {
   loginRequest,
   register,
   logout,
+  refreshToken,
 };

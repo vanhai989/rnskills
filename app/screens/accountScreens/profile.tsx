@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import {useDispatch} from 'react-redux';
-import authActions from '../../../store/auth/authRedux';
+import authActions from '../../store/auth/authRedux';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 
 export default function ProfileScreen() {

@@ -2,11 +2,19 @@ module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
   plugins: [
     [
-      require.resolve('babel-plugin-module-resolver'),
+      'module-resolver',
       {
+        root: ['.'],
+        extensions: ['.ts', '.tsx', '.jsx', '.js', '.json', '.svg', '.jpg'],
         alias: {
-          app: './app',
-          '@/*': './app/*',
+          '@': './app',
+          '@components': './app/components',
+          '@assets': './app/assets',
+          '@common': './app/common',
+          '@constants': './app/constants',
+          '@screens': './app/screens',
+          '@services': './app/services',
+          '@store': './app/store',
         },
       },
     ],

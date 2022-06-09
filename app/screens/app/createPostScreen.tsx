@@ -7,9 +7,9 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-import appActions from '../../../store/app/appRedux';
+import appActions from '../../store/app/appRedux';
 import {useNavigation} from '@react-navigation/native';
-import {Routers} from '../../routers';
+import {Routers} from '../../navigator/routers';
 import {useDispatch} from 'react-redux';
 
 const CreatePostScreen = () => {

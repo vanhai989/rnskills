@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import {useDispatch} from 'react-redux';
 import appConfigs from '../../config/appConfigs';
-import authActions, { authTypes } from '../store/auth/authRedux';
+import authActions, {authTypes} from '../store/auth/authRedux';
 
 /** ================================ */
 let store = '';
@@ -14,8 +14,6 @@ const api = axios.create({
 api.interceptors.response.use(
   (response: any) => response.data,
   (error: any) => {
-    console.log('error--', error);
-    
     if (error?.response?.status === 401) {
       let token = '';
       const authTokenState = store.getState()?.auth?.token;
@@ -33,8 +31,11 @@ api.interceptors.response.use(
       }
     }
     if (error?.response?.status === 403) {
-      const dispatch = useDispatch();
-      dispatch(authActions.logoutSuccessRequest());
+      //show dialog to shown the message is ' your token has expired, 'ok' => navigation to quick login '
+      // const dispatch = useDispatch();
+      // dispatch(
+      //   authActions.refreshTokenRequest(store.getState()?.auth?.refreshToken),
+      // );
     }
     if (error.response) {
       return Promise.reject({

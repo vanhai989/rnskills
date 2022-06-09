@@ -49,8 +49,23 @@ function* logoutRequest({resolve, reject}: any) {
   }
 }
 
+function* refreshTokenRequest({payload}: any) {
+  try {
+    const data = yield call(authApi.refreshToken, payload);
+    yield put(authActions.loginRequestSuccess(data));
+  } catch (error) {
+    // TODO: 403
+    const errorMessage = get(error, ['message'], 'unknown');
+    if (errorMessage) {
+    }
+  }
+}
+
 export default function* watcherSaga() {
   yield all([yield takeLatest(authTypes.LOGIN_REQUEST, loginRequest)]);
   yield all([yield takeLatest(authTypes.REGISTER, registerRequest)]);
   yield all([yield takeLatest(authTypes.LOGOUT_REQUEST, logoutRequest)]);
+  yield all([
+    yield takeLatest(authTypes.REFRESH_TOKEN_REQUEST, refreshTokenRequest),
+  ]);
 }

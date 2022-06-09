@@ -1,6 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {AppTabBottom} from '../../components';
+import {AppTabBottom} from '@components';
 import {createStackNavigator} from '@react-navigation/stack';
 import AppStack from '../appStack';
 import AccountStack from '../accountStack';
