@@ -6,7 +6,7 @@ import AppStack from '../appStack';
 import AccountStack from '../accountStack';
 import UpdateStack from '../updateStack';
 import {Routers} from '../../navigator/routers';
-import {Styles, Images, theme} from '../../common';
+import {Styles, Images, theme} from '@common';
 import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 
 import {Platform} from 'react-native';

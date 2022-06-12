@@ -7,9 +7,9 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-import Images from '../../../../common/images';
+import {Images} from '@common';
 import {useDispatch} from 'react-redux';
-import authActions from '../../../../store/auth/authRedux';
+import {authActions} from '@store';
 import {useNavigation} from '@react-navigation/native';
 
 const RegisterScreen = () => {
@@ -22,7 +22,7 @@ const RegisterScreen = () => {
   const [passwordConfirm, setPasswordConfirm] = useState('');
 
   const registerSuccess = () => {
-      navigation.goBack();
+    navigation.goBack();
   };
   const registerFailed = () => {};
 

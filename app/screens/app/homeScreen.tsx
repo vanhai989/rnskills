@@ -1,5 +1,6 @@
 import {
   FlatList,
+  Image,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -8,9 +9,9 @@ import {
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
-import appActions from '../../../store/app/appRedux';
+import {appActions} from '@store';
 import {useNavigation} from '@react-navigation/native';
-import {Routers} from '../../routers';
+import {Routers} from '@routers';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -18,6 +19,7 @@ const HomeScreen = () => {
 
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [photos, setPhotos] = useState([]);
 
   const getUserSuccess = response => {
     setUsers(response);
@@ -32,6 +34,14 @@ const HomeScreen = () => {
   useEffect(() => {
     dispatch(appActions.getUsersRequest(getUserSuccess, getUserFailed));
     dispatch(appActions.getPostsRequest(getPostSuccess, getPostFailed));
+    dispatch(
+      appActions.getPhotosRequest(
+        res => {
+          setPhotos(res);
+        },
+        () => setPhotos([]),
+      ),
+    );
   }, []);
 
   const _renderItem = ({item}) => {
@@ -51,6 +61,37 @@ const HomeScreen = () => {
       </View>
     );
   };
+
+  const convertToBase64 = async (
+    path = '/Users/haidev/workspace/express/express_api/uploads/1846d42c-72f1-4456-abdc-01feaaf12ac1.png',
+  ) => {
+    let result = '';
+    await ImgToBase64.getBase64String(`file://${path}`)
+      .then(base64 => {
+        result = base64;
+      })
+      .catch(err => console.log(err));
+    return result;
+  };
+
+  const _renderItemPhotos = ({item, index}: any) => {
+    if (photos.length > 0) {
+      const {name, img} = item;
+      return (
+        <View key={index}>
+          <Text>{name}</Text>
+          <Image
+            source={{
+              uri: `data:application/png;base64,${img}`,
+            }}
+            style={{width: 200, height: 200}}
+          />
+        </View>
+      );
+    } else {
+      return <View />;
+    }
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.body}>
@@ -68,6 +109,10 @@ const HomeScreen = () => {
         <View>
           <Text>list posts</Text>
           <FlatList data={posts} renderItem={_renderItemPosts} />
+        </View>
+        <View>
+          <Text>list photos</Text>
+          <FlatList data={photos} renderItem={_renderItemPhotos} />
         </View>
       </View>
     </SafeAreaView>

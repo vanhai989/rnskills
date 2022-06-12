@@ -1,4 +1,5 @@
 import {
+  Image,
   ImageBackground,
   StyleSheet,
   Text,
@@ -7,9 +8,9 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-import Images from '../../../../common/images';
+import {Images} from '@common';
 import {useDispatch} from 'react-redux';
-import authActions from '../../../../store/auth/authRedux';
+import {authActions} from '@store';
 import {useNavigation} from '@react-navigation/native';
 
 const LoginScreen = () => {
@@ -69,6 +70,13 @@ const LoginScreen = () => {
               <Text style={styles.btnText}>Forgot password</Text>
             </TouchableOpacity>
           </View>
+
+          <Image
+            source={{
+              uri: 'http://localhost:3000/2bdf8806-9a10-4e00-b353-218002a65777.png',
+            }}
+            style={{width: 100, height: 100}}
+          />
         </View>
       </ImageBackground>
     </View>

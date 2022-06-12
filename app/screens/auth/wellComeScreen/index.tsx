@@ -3,7 +3,7 @@ import * as React from 'react';
 import {Text, View, ImageBackground, TouchableOpacity} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import {useDispatch} from 'react-redux';
-import Images from '../../../../common/images';
+import {Images} from '@common';
 
 const initCarouselItems = [
   {

@@ -1,5 +1,5 @@
 import {persistStore} from 'redux-persist';
-import appActions from '../store/app/appRedux';
+import {appActions} from '@store';
 
 const updateReducers = (store: any) => {
   const startup = () => store.dispatch(appActions.startupRequest());

@@ -8,6 +8,7 @@ const {Types, Creators} = createActions({
   getUsersRequest: ['resolve', 'reject'],
   createPostRequest: ['payload', 'resolve', 'reject'],
   getPostsRequest: ['resolve', 'reject'],
+  getPhotosRequest: ['resolve', 'reject'],
 });
 
 export const appTypes = Types;
@@ -37,6 +38,9 @@ export const createPostRequest = (state: any) => {
 export const getPostsRequest = (state: any) => {
   return {...state};
 };
+export const getPhotosRequest = (state: any) => {
+  return {...state};
+};
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
@@ -44,4 +48,5 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.STARTUP_SUCCESS]: startupSuccess,
   [Types.CREATE_POST_REQUEST]: createPostRequest,
   [Types.GET_POSTS_REQUEST]: getPostsRequest,
+  [Types.GET_PHOTOS_REQUEST]: getPhotosRequest,
 });

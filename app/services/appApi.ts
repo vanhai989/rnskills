@@ -11,8 +11,14 @@ async function createPost(params: any) {
 async function getPosts() {
   return api.get('api/posts');
 }
+
+async function getPhotos() {
+  return api.get('api/photos');
+}
+
 export default {
   getUsers,
   createPost,
   getPosts,
+  getPhotos,
 };

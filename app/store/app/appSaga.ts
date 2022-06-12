@@ -60,6 +60,19 @@ function* getPostRequest({resolve, failed}) {
   }
 }
 
+function* getPhotosRequest({resolve, failed}) {
+  try {
+    const data = yield call(appApi.getPhotos);
+    if (resolve) {
+      yield resolve(data);
+    }
+  } catch (error) {
+    if (failed) {
+      yield failed();
+    }
+  }
+}
+
 export default function* watcherSaga() {
   yield all([yield takeLatest(appTypes.GET_USERS_REQUEST, getUsersRequest)]);
   yield all([yield takeLatest(appTypes.STARTUP_REQUEST, startupRequest)]);
@@ -67,4 +80,5 @@ export default function* watcherSaga() {
     yield takeLatest(appTypes.CREATE_POST_REQUEST, createPostRequest),
   ]);
   yield all([yield takeLatest(appTypes.GET_POSTS_REQUEST, getPostRequest)]);
+  yield all([yield takeLatest(appTypes.GET_PHOTOS_REQUEST, getPhotosRequest)]);
 }

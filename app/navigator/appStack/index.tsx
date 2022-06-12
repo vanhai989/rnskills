@@ -2,9 +2,8 @@
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import * as React from 'react';
-import homeScreen from '../../screens/app/homeScreen';
+import {HomeScreen, CreatePostScreen} from '@screens';
 import {Routers} from '../routers';
-import CreatePostScreen from '../../screens/app/createPostScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +12,7 @@ function AppStack() {
     <Stack.Navigator>
       <Stack.Screen
         name="home"
-        component={homeScreen}
+        component={HomeScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen name={Routers.CreatePost} component={CreatePostScreen} />

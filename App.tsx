@@ -4,7 +4,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import AppNavigator from './app/navigator';
 import store from './config/reduxConfig/store';
-import {theme} from './app/common';
+import {theme} from '@common';
 import {Text, TextInput} from 'react-native';
 
 Text.defaultProps = {};

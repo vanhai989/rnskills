@@ -3,10 +3,9 @@ import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, Keyboard, Platform, Text} from 'react-native';
 
 import {get} from 'lodash';
-import colors from '../../common/color';
-import {Images, Styles, theme} from '../../common';
-import {AppButton, AppText, AppView} from '..';
-import {Routers} from '../../navigator/routers';
+import {Images, Styles, theme, Color} from '@common';
+import {AppButton, AppView} from '@components';
+import {Routers} from '@routers';
 import {useSelector} from 'react-redux';
 
 const {
@@ -127,6 +126,6 @@ const styles = StyleSheet.create({
         : Styles.Common.specifications.bottomNavbarHeight,
   },
   viewSafe: {
-    backgroundColor: colors.white,
+    backgroundColor: Color.white,
   },
 });

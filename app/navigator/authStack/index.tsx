@@ -3,9 +3,7 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import * as React from 'react';
 import {useSelector} from 'react-redux';
-import loginScreen from './screens/loginScreen';
-import RegisterScreen from './screens/registerScreen';
-import WellComeScreen from './screens/wellComeScreen';
+import {LoginScreen, RegisterScreen, WellComeScreen} from '@screens';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +15,7 @@ function AuthNavigator() {
   return (
     <Stack.Navigator>
       {isReady ? (
-        <Stack.Screen name="login" component={loginScreen} />
+        <Stack.Screen name="login" component={LoginScreen} />
       ) : (
         <Stack.Screen name="wellCome" component={WellComeScreen} />
       )}

@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import {useDispatch} from 'react-redux';
-import authActions from '../../store/auth/authRedux';
+import {authActions} from '@store';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 
 export default function ProfileScreen() {
@@ -34,8 +34,8 @@ export default function ProfileScreen() {
   };
 
   const onLogout = () => {
-    dispatch(authActions.logoutRequest(logoutSuccess, logoutFailed));
-    //  dispatch(authActions.logoutSuccessRequest());
+    // dispatch(authActions.logoutRequest(logoutSuccess, logoutFailed));
+     dispatch(authActions.logoutSuccessRequest());
   };
   return (
     <SafeAreaView style={styles.container}>

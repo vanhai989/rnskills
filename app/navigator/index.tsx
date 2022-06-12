@@ -9,7 +9,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {isEmpty} from 'lodash';
 import {View} from 'react-native';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
-import {Routers} from './routers';
+import {Routers} from '@routers';
 
 export type RootNavigationParamsList = {
   [Routers.authNavigator]: undefined;

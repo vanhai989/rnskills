@@ -7,9 +7,8 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-import appActions from '../../store/app/appRedux';
+import {appActions} from '@store';
 import {useNavigation} from '@react-navigation/native';
-import {Routers} from '../../navigator/routers';
 import {useDispatch} from 'react-redux';
 
 const CreatePostScreen = () => {
@@ -26,9 +25,9 @@ const CreatePostScreen = () => {
   const createPostFailed = () => {};
 
   const onCreatePost = () => {
-      console.log('title', title);
-      console.log('body', body);
-      
+    console.log('title', title);
+    console.log('body', body);
+
     const params = {
       title: title,
       body: body,
