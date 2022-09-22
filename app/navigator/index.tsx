@@ -38,7 +38,7 @@ function AppNavigator() {
             />
           ) : (
             <Stack.Screen
-              name="RootStack"
+              name={Routers.RootStack}
               component={RootStack}
               options={{headerShown: false}}
             />

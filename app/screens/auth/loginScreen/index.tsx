@@ -12,6 +12,7 @@ import {Images} from '@common';
 import {useDispatch} from 'react-redux';
 import {authActions} from '@store';
 import {useNavigation} from '@react-navigation/native';
+import {Routers} from '../../../navigator/routers';
 
 const LoginScreen = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const LoginScreen = () => {
   const [password, setPassword] = useState('');
 
   const loginSuccess = () => {
-    navigation.navigate('RootStack');
+    navigation.navigate(Routers.RootStack);
   };
   const loginFailed = () => {};
 

@@ -58,21 +58,22 @@ const WellComeScreen = () => {
     );
   };
 
-  return (
-    <ImageBackground source={Images.backgroundCarousel} style={{flex: 1}}>
-      <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
-        <Carousel
-          layout={'default'}
-          ref={carousel}
-          data={carouselItems}
-          sliderWidth={300}
-          itemWidth={300}
-          renderItem={_renderItem}
-          onSnapToItem={index => setActiveIndex(index)}
-        />
-      </View>
-    </ImageBackground>
-  );
+  // return (
+  //   <ImageBackground source={Images.backgroundCarousel} style={{flex: 1}}>
+  //     <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
+  //       <Carousel
+  //         layout={'default'}
+  //         ref={carousel}
+  //         data={carouselItems}
+  //         sliderWidth={300}
+  //         itemWidth={300}
+  //         renderItem={_renderItem}
+  //         onSnapToItem={index => setActiveIndex(index)}
+  //       />
+  //     </View>
+  //   </ImageBackground>
+  // );
+  return <Text>hello</Text>
 };
 
 export default WellComeScreen;
