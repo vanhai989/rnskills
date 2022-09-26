@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import * as React from 'react';
 import {Images} from '@common';
 import {useDispatch} from 'react-redux';
 import {authActions} from '@store';
@@ -16,10 +16,10 @@ const RegisterScreen = () => {
   const dispatch = useDispatch();
   const navigation: any = useNavigation();
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [passwordConfirm, setPasswordConfirm] = React.useState('');
 
   const registerSuccess = () => {
     navigation.goBack();

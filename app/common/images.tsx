@@ -8,6 +8,7 @@ import MoreIconActive from '../assets/svg/moreIconActive';
 const Images = {
   backgroundCarousel: require('../assets/backgroundCarousel.jpeg'),
   backgroundLogin: require('../assets/backgroundLogin.jpeg'),
+  bgHeader: require('../assets/bgHeader.png'),
   HomeIcon,
   HomeIconActive,
   AccountIcon,

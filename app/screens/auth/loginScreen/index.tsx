@@ -36,7 +36,7 @@ const LoginScreen = () => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground source={Images.backgroundLogin} style={styles.container}>
-        <View>
+        <View style={{flex: 1, justifyContent: 'flex-end', marginBottom: 100}}>
           <Text style={styles.loginTitle}>Login</Text>
           <Text style={styles.titleTextInput}>Email</Text>
           <TextInput
@@ -50,34 +50,17 @@ const LoginScreen = () => {
             onChangeText={setPassword}
             style={styles.textInput}
           />
+           <TouchableOpacity
+              onPress={() => navigation.navigate('register')}
+              style={styles.btnOtherAuth}>
+              <Text style={[styles.btnText, {textAlign: 'right', textDecorationLine: 'underline', marginTop: 5}]}>
+                Register</Text>
+            </TouchableOpacity>
           <View style={styles.wrapperBtn}>
             <TouchableOpacity onPress={onSubmit} style={styles.btnSubmit}>
               <Text style={styles.btnText}>submit</Text>
             </TouchableOpacity>
           </View>
-
-          <Text style={styles.otherAuthTitle}>
-            If you don't have an account or forgot your password
-          </Text>
-          <View style={styles.otherAuth}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('register')}
-              style={styles.btnOtherAuth}>
-              <Text style={styles.btnText}>Register</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('')}
-              style={styles.btnOtherAuth}>
-              <Text style={styles.btnText}>Forgot password</Text>
-            </TouchableOpacity>
-          </View>
-
-          <Image
-            source={{
-              uri: 'http://localhost:3000/2bdf8806-9a10-4e00-b353-218002a65777.png',
-            }}
-            style={{width: 100, height: 100}}
-          />
         </View>
       </ImageBackground>
     </View>
@@ -97,6 +80,8 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 5,
     borderRadius: 5,
+    // borderWidth: 1,
+    // borderColor: 'yellow'
   },
   wrapperBtn: {
     marginTop: 50,
@@ -130,12 +115,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   btnOtherAuth: {
-    backgroundColor: 'orange',
-    paddingVertical: 5,
-    paddingHorizontal: 10,
-    flex: 1,
-    marginHorizontal: 5,
-    borderRadius: 5,
+    // flex: 1,
   },
   otherAuthTitle: {
     textAlign: 'center',
