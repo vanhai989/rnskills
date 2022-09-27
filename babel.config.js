@@ -16,6 +16,7 @@ module.exports = {
           '@services': './app/services',
           '@store': './app/store',
           '@routers': './app/navigator/routers',
+          '@utils': './app/utils',
         },
       },
     ],

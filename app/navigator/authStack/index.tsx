@@ -17,8 +17,8 @@ function AuthNavigator() {
   return (
     <Stack.Navigator>
       {isReady ? (
-        // <Stack.Screen name="login" component={LoginScreen} options={{headerShown: false}} />
-        <Stack.Screen name={Routers.HomeStack} component={AppStack} options={{headerShown: false}} />
+        <Stack.Screen name="login" component={LoginScreen} options={{headerShown: false}} />
+        // <Stack.Screen name={Routers.HomeStack} component={AppStack} options={{headerShown: false}} />
       ) : (
         <Stack.Screen name="wellCome" component={WellComeScreen} options={{headerShown: false}} />
       )}

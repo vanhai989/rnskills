@@ -24,6 +24,7 @@ const {
   AccountIconActive,
   MoreIcon,
   MoreIconActive,
+  bellIcon,
 } = Images;
 const AuthenticatedTabs = () => {
   return (
@@ -69,18 +70,18 @@ const AuthenticatedTabs = () => {
         }}
       />
       <Tab.Screen
-        name={Routers.AccountStack}
-        component={UpdateStack}
+        name={Routers.MoreStack}
+        component={AccountStack}
         options={{
-          tabBarLabel: 'Account',
+          tabBarLabel: 'Notification',
           headerShown: false,
         }}
       />
       <Tab.Screen
-        name={Routers.MoreStack}
-        component={AccountStack}
+        name={Routers.AccountStack}
+        component={UpdateStack}
         options={{
-          tabBarLabel: 'More',
+          tabBarLabel: 'Account',
           headerShown: false,
         }}
       />

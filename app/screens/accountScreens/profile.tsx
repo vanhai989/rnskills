@@ -9,7 +9,7 @@ import React from 'react';
 import {useDispatch} from 'react-redux';
 import {authActions} from '@store';
 import {CommonActions, useNavigation} from '@react-navigation/native';
-
+import {BaseHeader} from '@components'
 export default function ProfileScreen() {
   const dispatch = useDispatch();
   const navigation = useNavigation();
@@ -39,6 +39,7 @@ export default function ProfileScreen() {
   };
   return (
     <SafeAreaView style={styles.container}>
+      <BaseHeader title='Account' backIcon={undefined} onPress={() => {}} />
       <View style={styles.body}>
         <Text>ProfileScreen</Text>
 

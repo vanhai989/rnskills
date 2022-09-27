@@ -9,6 +9,7 @@ const Images = {
   backgroundCarousel: require('../assets/backgroundCarousel.jpeg'),
   backgroundLogin: require('../assets/backgroundLogin.jpeg'),
   bgHeader: require('../assets/bgHeader.png'),
+  bellIcon: require('../assets/bell.png'),
   HomeIcon,
   HomeIconActive,
   AccountIcon,

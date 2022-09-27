@@ -1,10 +1,8 @@
 import {
-  FlatList,
   Image,
-  SafeAreaView,
   StyleSheet,
   Text,
-  TouchableOpacity,
+  ScrollView,
   View,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
@@ -14,6 +12,7 @@ import {useNavigation} from '@react-navigation/native';
 import {Routers} from '@routers';
 import {BaseHeader} from '@components';
 import Theme from '../../common/theme';
+import NewItem from './News/NewItem';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -97,31 +96,12 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <BaseHeader title='Sharing' backIcon={undefined} onPress={() => {}} />
-      <View style={styles.body}>
-        <View>
-          {/* <FlatList data={posts} renderItem={_renderItemPosts} /> */}
-          <View style={styles.item}>
-            <View style={styles.wrap_avatar}>
-              <Image source={{uri: 'https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png'}}
-              style={styles.avatar}
-              />
-             <View>
-              <Text>Hà Ngọc Cường</Text>
-              <Text>10:40 PM - 04/06/2022</Text>
-             </View>
-            </View>
-            <Text>subject: The beaver is North America's largest rodent and is built for life in the water.</Text>
-            <Text>Adults can be up to four feet long and weigh over 60 pounds. 
-              The beaver has webbed hind feet and a large, flat, nearly hairless tail. 
-              It uses its tail to help maintain its balance when it is gnawing on trees. 
-              It will also slap its tail against the water to signal danger or to warn away predators. 
-              The beaver has short front legs with heavy claws. Their rear legs are longer, 
-              and they use their rear webbed feet help propel themselves through the water.
-              When the beaver is under water, its nose and ears close up and a special membrane covers its eyes.</Text>
-              <Image source={{uri: 'https://nhpbs.org/wild/images/beavernps2.jpg'}} style={styles.content_image} />
-        </View>
-        </View>
-      </View>
+      <ScrollView>
+        <NewItem />
+        <View style={{height: 5, backgroundColor: '#EBEBEB'}}/>
+        <NewItem />
+        <View style={{height: 5, backgroundColor: '#EBEBEB'}}/>
+      </ScrollView>
     </View>
   );
 };
@@ -151,7 +131,36 @@ const styles = StyleSheet.create({
     // backgroundColor: 'green'
   },
   content_image: {
-    width: Theme.SIZES.WIDTH_SCREEN - 30,
-    height: 300
+    width: (Theme.SIZES.WIDTH_SCREEN - 35) / 2,
+    height: 150,
+    marginBottom: 5
+  },
+  content_image_bottom: {
+    width: (Theme.SIZES.WIDTH_SCREEN - 40) / 3,
+    height: 100,
+  },
+  wrap_title: {
+    marginLeft: 5
+  },
+  username: {
+    color: '#009FE3'
+  },
+  subject: {
+    color: 'gray'
+  },
+  wrap_subject: {
+    flexDirection: 'row',
+    marginVertical: 10
+  },
+  subject_content: {
+    color: '#009FE3',
+    overflow: 'hidden',
+    flex: 1,
+  },
+  body_content: {
+    lineHeight: 18
+  },
+  wrap_images: {
+    marginTop: 10
   }
 });
