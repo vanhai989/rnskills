@@ -31,16 +31,16 @@ function AppNavigator() {
       <NavigationContainer independent>
         <Stack.Navigator screenOptions={TransitionScreenOptions}>
           {isEmpty(state.token) ? (
-            // <Stack.Screen
-            //   name="authNavigator"
-            //   component={AuthNavigator}
-            //   options={{headerShown: false}}
-            // />
             <Stack.Screen
-            name={Routers.RootStack}
-            component={RootStack}
-            options={{headerShown: false}}
-          />
+              name="authNavigator"
+              component={AuthNavigator}
+              options={{headerShown: false}}
+            />
+          //   <Stack.Screen
+          //   name={Routers.RootStack}
+          //   component={RootStack}
+          //   options={{headerShown: false}}
+          // />
           ) : (
             <Stack.Screen
               name={Routers.RootStack}

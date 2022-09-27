@@ -31,17 +31,17 @@ const AuthenticatedTabs = () => {
     <Tab.Navigator
       tabBar={props => <AppTabBottom {...props} />}
       screenOptions={({route}) => ({
-        tabBarIcon: ({focused}) => {
-          let icon;
-          if (route.name === Routers.HomeStack) {
-            icon = focused ? <HomeIconActive /> : <HomeIcon />;
-          } else if (route.name === Routers.AccountStack) {
-            icon = focused ? <AccountIconActive /> : <AccountIcon />;
-          } else if (route.name === Routers.MoreStack) {
-            icon = focused ? <MoreIconActive /> : <MoreIcon />;
-          }
-          return icon;
-        },
+        // tabBarIcon: ({focused}) => {
+        //   let icon;
+        //   if (route.name === Routers.HomeStack) {
+        //     icon = focused ? <HomeIconActive /> : <HomeIcon />;
+        //   } else if (route.name === Routers.AccountStack) {
+        //     icon = focused ? <AccountIconActive /> : <AccountIcon />;
+        //   } else if (route.name === Routers.MoreStack) {
+        //     icon = focused ? <MoreIconActive /> : <MoreIcon />;
+        //   }
+        //   return icon;
+        // },
         tabBarActiveTintColor: theme.COLORS.tabbarActiveTint,
         tabBarInactiveTintColor: theme.COLORS.tabbarColor,
         tabBarStyle: {
@@ -71,7 +71,7 @@ const AuthenticatedTabs = () => {
       />
       <Tab.Screen
         name={Routers.MoreStack}
-        component={AccountStack}
+        component={UpdateStack}
         options={{
           tabBarLabel: 'Notification',
           headerShown: false,
@@ -79,7 +79,7 @@ const AuthenticatedTabs = () => {
       />
       <Tab.Screen
         name={Routers.AccountStack}
-        component={UpdateStack}
+        component={AccountStack}
         options={{
           tabBarLabel: 'Account',
           headerShown: false,
