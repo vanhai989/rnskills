@@ -12,7 +12,7 @@ import {appActions} from '@store';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch} from 'react-redux';
 import {AppView, BaseHeader} from '@components';
-import {Styles, theme} from '@common';
+import {Styles, theme, Images} from '@common';
 import { ScrollView } from 'react-native-gesture-handler';
 
 const CreatePostScreen = () => {
@@ -75,9 +75,7 @@ const CreatePostScreen = () => {
           />
         </View>
         <Image
-          source={{
-            uri: 'https://media.sciencephoto.com/z9/18/01/28/z9180128-800px-wm.jpg',
-          }}
+          source={Images.createPost}
           style={styles.imageContent}
         />
 

@@ -7,12 +7,13 @@ import {
 import React from 'react';
 
 import Theme from '../../../common/theme';
+import Images from '../../../common/images';
 import {PADDING_HORIZONTAL} from '../../../utils'
 export default function NewItem() {
   return (
     <View style={[styles.item, styles.viewShadow]}>
             <View style={styles.wrap_avatar}>
-              <Image source={{uri: 'https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png'}}
+              <Image source={Images.home1}
               style={styles.avatar}
               />
              <View style={styles.wrap_title}>
@@ -33,13 +34,13 @@ export default function NewItem() {
               When the beaver is under water, its nose and ears close up and a special membrane covers its eyes.</Text>
               <View style={styles.wrap_images}>
                 <View style={{flexDirection: 'row'}}>
-                  <Image source={{uri: 'https://nhpbs.org/wild/images/beavernps2.jpg'}} style={[styles.content_image, {marginRight: 2.5}]} />
-                  <Image source={{uri: 'https://cdn.mos.cms.futurecdn.net/kcRzdovizut8baffisLP7a.jpg'}} style={[styles.content_image, {marginLeft: 2.5}]} />
+                  <Image source={Images.home2} style={[styles.content_image, {marginRight: 2.5}]} />
+                  <Image source={Images.home3} style={[styles.content_image, {marginLeft: 2.5}]} />
                 </View>
                 <View style={{flexDirection: 'row'}}>
-                  <Image source={{uri: 'https://i.pinimg.com/736x/c9/50/c8/c950c814e02800e9e455a5164fbad3ea--cutaway-beavers.jpg'}} style={[styles.content_image_bottom, {marginRight: 2.5}]} />
-                  <Image source={{uri: 'https://www.worldlifeexpectancy.com/images/a/w/b/castor-canadensis/castor-canadensis.jpg'}} style={[styles.content_image_bottom, {marginRight: 2.5, marginLeft: 2.5}]} />
-                  <Image source={{uri: 'https://cdn.pixabay.com/photo/2017/10/17/14/18/beaver-2860796__480.jpg'}} style={[styles.content_image_bottom, {marginLeft: 2.5}]} />
+                  <Image source={Images.home4} style={[styles.content_image_bottom, {marginRight: 2.5}]} />
+                  <Image source={Images.home5} style={[styles.content_image_bottom, {marginRight: 2.5, marginLeft: 2.5}]} />
+                  <Image source={Images.home6} style={[styles.content_image_bottom, {marginLeft: 2.5}]} />
                 </View>
               </View>
         </View>
