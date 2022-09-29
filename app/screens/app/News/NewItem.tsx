@@ -39,7 +39,7 @@ export default function NewItem() {
                 <View style={{flexDirection: 'row'}}>
                   <Image source={{uri: 'https://i.pinimg.com/736x/c9/50/c8/c950c814e02800e9e455a5164fbad3ea--cutaway-beavers.jpg'}} style={[styles.content_image_bottom, {marginRight: 2.5}]} />
                   <Image source={{uri: 'https://www.worldlifeexpectancy.com/images/a/w/b/castor-canadensis/castor-canadensis.jpg'}} style={[styles.content_image_bottom, {marginRight: 2.5, marginLeft: 2.5}]} />
-                  <Image source={{uri: 'https://loe.org/content/2019-02-22/BEAVER-beaver.jpg'}} style={[styles.content_image_bottom, {marginLeft: 2.5}]} />
+                  <Image source={{uri: 'https://cdn.pixabay.com/photo/2017/10/17/14/18/beaver-2860796__480.jpg'}} style={[styles.content_image_bottom, {marginLeft: 2.5}]} />
                 </View>
               </View>
         </View>

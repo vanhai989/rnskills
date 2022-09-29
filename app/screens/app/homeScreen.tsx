@@ -1,18 +1,23 @@
-import {
-  Image,
-  StyleSheet,
-  Text,
-  ScrollView,
-  View,
-} from 'react-native';
+import {Image, StyleSheet, Text, ScrollView, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {appActions} from '@store';
 import {useNavigation} from '@react-navigation/native';
-import {Routers} from '@routers';
-import {BaseHeader} from '@components';
+import {Images} from '@common';
+import {AppButton, BaseHeader} from '@components';
 import Theme from '../../common/theme';
 import NewItem from './News/NewItem';
+import {FloatingAction} from 'react-native-floating-action';
+import { Routers } from '@routers';
+
+const actions = [
+  {
+    text: 'Accessibility',
+    icon: Images.plusIcon,
+    name: 'Posting',
+    position: 2,
+  },
+];
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -95,13 +100,21 @@ const HomeScreen = () => {
   };
   return (
     <View style={styles.container}>
-      <BaseHeader title='Sharing' backIcon={undefined} onPress={() => {}} />
+      <BaseHeader title="Sharing" backIcon={false} onPress={() => {}} />
       <ScrollView>
         <NewItem />
-        <View style={{height: 5, backgroundColor: '#EBEBEB'}}/>
+        <View style={{height: 5, backgroundColor: '#EBEBEB'}} />
         <NewItem />
-        <View style={{height: 5, backgroundColor: '#EBEBEB'}}/>
+        <View style={{height: 5, backgroundColor: '#EBEBEB'}} />
       </ScrollView>
+      <FloatingAction
+        actions={actions}
+        onPressItem={name => {
+          if (name == 'Posting') {
+            navigation.navigate(Routers.CreatePost)
+          }
+        }}
+      />
     </View>
   );
 };
@@ -122,7 +135,7 @@ const styles = StyleSheet.create({
   avatar: {
     width: 40,
     height: 40,
-    borderRadius: 20
+    borderRadius: 20,
   },
   wrap_avatar: {
     flexDirection: 'row',
@@ -133,24 +146,24 @@ const styles = StyleSheet.create({
   content_image: {
     width: (Theme.SIZES.WIDTH_SCREEN - 35) / 2,
     height: 150,
-    marginBottom: 5
+    marginBottom: 5,
   },
   content_image_bottom: {
     width: (Theme.SIZES.WIDTH_SCREEN - 40) / 3,
     height: 100,
   },
   wrap_title: {
-    marginLeft: 5
+    marginLeft: 5,
   },
   username: {
-    color: '#009FE3'
+    color: '#009FE3',
   },
   subject: {
-    color: 'gray'
+    color: 'gray',
   },
   wrap_subject: {
     flexDirection: 'row',
-    marginVertical: 10
+    marginVertical: 10,
   },
   subject_content: {
     color: '#009FE3',
@@ -158,9 +171,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   body_content: {
-    lineHeight: 18
+    lineHeight: 18,
   },
   wrap_images: {
-    marginTop: 10
-  }
+    marginTop: 10,
+  },
 });

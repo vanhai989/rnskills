@@ -15,7 +15,7 @@ function AppStack() {
         component={HomeScreen}
         options={{headerShown: false}}
       />
-      <Stack.Screen name={Routers.CreatePost} component={CreatePostScreen} />
+      <Stack.Screen name={Routers.CreatePost} component={CreatePostScreen} options={{headerShown: false}} />
     </Stack.Navigator>
   );
 }

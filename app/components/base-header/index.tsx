@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { Images, Styles } from '@common';
 import { AppView, AppText, AppButton } from '@components';
-import { ImageBackground, Platform } from 'react-native';
+import { Image, ImageBackground, Platform } from 'react-native';
 import { useSelector } from 'react-redux';
 
 const STATUS_BAR_HEIGHT = Styles.Common.specifications.statusBarHeight;
@@ -19,20 +19,20 @@ interface Props {
   onPress?: () => void;
 }
 
-// const { BackIcon } = Images;
 const BaseHeader = (props: Props) => {
-  const { title = '', backIcon = true, onPress } = props;
+  const { title = '', backIcon = false, onPress } = props;
   const navigation = useNavigation();
-  const isDisableGoBack = useSelector(state => state?.app?.isDisableGoBack);
+  // const isDisableGoBack = useSelector(state => state?.app?.isDisableGoBack);
   const onPressGoBack = () => {
-    if (isDisableGoBack) {
-      return;
-    }
-    if (onPress) {
-      onPress();
-    } else {
-      navigation.goBack();
-    }
+    // if (isDisableGoBack) {
+    //   return;
+    // }
+    // if (onPress) {
+    //   onPress();
+    // } else {
+    //   navigation.goBack();
+    // }
+    navigation.goBack();
   };
   return (
     <AppView
@@ -60,12 +60,12 @@ const BaseHeader = (props: Props) => {
           style={{
             marginTop: Platform.OS === 'ios' ? STATUS_BAR_HEIGHT : 0,
           }}>
-          {!!backIcon && (
+          {backIcon && (
             <AppButton
               width={30}
               onPress={onPressGoBack}
               hitSlop={{ top: 10, right: 15, bottom: 10, left: 15 }}>
-              {/* <BackIcon /> */}
+              <Image source={Images.backIcon} style={{width: 10, height: 10}} />
             </AppButton>
           )}
           <AppText bound appStyle="size20 w700 white jusC aliC flex1">
