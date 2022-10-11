@@ -8,6 +8,7 @@ import AppNavigator from './app/navigator';
 import store from './config/reduxConfig/store';
 import {theme} from '@common';
 import {Text, TextInput} from 'react-native';
+import codePush from "react-native-code-push";
 
 Text.defaultProps = {};
 TextInput.defaultProps = {};
@@ -30,4 +31,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default codePush(App);
