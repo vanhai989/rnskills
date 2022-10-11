@@ -1,9 +1,8 @@
 import React from 'react';
-import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { Images, Styles } from '@common';
 import { AppView, AppText, AppButton } from '@components';
 import { Image, ImageBackground, Platform } from 'react-native';
-import { useSelector } from 'react-redux';
 
 const STATUS_BAR_HEIGHT = Styles.Common.specifications.statusBarHeight;
 const HEADER_BAR_HEIGHT =

@@ -10,8 +10,8 @@ const AppConfigs = {
   DEV: {
     END_POINT:
       Platform.OS === 'android'
-        ? 'http://10.0.2.2:3000'
-        : 'http://localhost:3000', //  :  : 'http://127.0.0.1:3000',
+        ? 'https://mobileapii.herokuapp.com' //         http://10.0.2.2:3000
+        : 'https://mobileapii.herokuapp.com', //  :  : 'http://127.0.0.1:3000',
     ...commonConfigs,
   },
   PRO: {

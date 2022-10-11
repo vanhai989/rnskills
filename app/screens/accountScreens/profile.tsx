@@ -7,8 +7,8 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {useDispatch} from 'react-redux';
-import {authActions} from '@store';
+import {useDispatch, useSelector} from 'react-redux';
+import {appActions, authActions} from '@store';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 import {AppView, BaseHeader} from '@components'
 import {theme, Images} from '@common';
@@ -16,8 +16,10 @@ export default function ProfileScreen() {
   const dispatch = useDispatch();
   const navigation = useNavigation();
 
+  const userInfo = useSelector(state => state.auth.user);
+console.log('userInfo', userInfo)
   const logoutSuccess = () => {
-    console.log('logout success');
+    dispatch(appActions.hideIndicator())
     navigation.dispatch(
       CommonActions.reset({
         index: 0,
@@ -32,12 +34,13 @@ export default function ProfileScreen() {
   };
 
   const logoutFailed = error => {
+    dispatch(appActions.hideIndicator())
     console.log('error', error);
   };
 
   const onLogout = () => {
-    // dispatch(authActions.logoutRequest(logoutSuccess, logoutFailed));
-    dispatch(authActions.logoutSuccessRequest());
+    dispatch(appActions.showIndicator())
+    dispatch(authActions.logoutRequest(logoutSuccess, logoutFailed));
   };
   return (
     <AppView style={styles.container}>
@@ -54,8 +57,8 @@ export default function ProfileScreen() {
         </AppView>
 
       <View style={styles.body}>
-        <UserInfoItem title='Name' value='Jody Wisternoff' />
-        <UserInfoItem title='Email' value='JodyWisternoff@gmail.com' />
+        <UserInfoItem title='Name' value={userInfo.name ?? 'JodyWisternoff'} />
+        <UserInfoItem title='Email' value={userInfo.email ?? 'JodyWisternoff@gmail.com'}  />
         <UserInfoItem title='Password' value='**********' />
         <UserInfoItem title='User ID' value='22200' />
        <TouchableOpacity onPress={onLogout} style={styles.btnLogout}>

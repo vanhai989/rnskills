@@ -7,10 +7,10 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Images} from '@common';
 import {useDispatch} from 'react-redux';
-import {authActions} from '@store';
+import {appActions, authActions} from '@store';
 import {useNavigation} from '@react-navigation/native';
 import {Routers} from '../../../navigator/routers';
 
@@ -22,17 +22,23 @@ const LoginScreen = () => {
   const [password, setPassword] = useState('');
 
   const loginSuccess = () => {
+    dispatch(appActions.hideIndicator())
     navigation.navigate(Routers.RootStack);
   };
-  const loginFailed = () => {};
+  const loginFailed = () => {  dispatch(appActions.hideIndicator())};
 
   const onSubmit = () => {
     const params = {
       email,
       password,
     };
+    dispatch(appActions.showIndicator())
     dispatch(authActions.loginRequest(params, loginSuccess, loginFailed));
   };
+
+  useEffect(() => {
+    dispatch(appActions.hideIndicator())
+  }, [])
   return (
     <View style={{flex: 1}}>
       <ImageBackground source={Images.backgroundLogin} style={styles.container}>
@@ -45,6 +51,7 @@ const LoginScreen = () => {
           />
           <Text style={styles.titleTextInput}>Password</Text>
           <TextInput
+            secureTextEntry={true}
             value={password}
             onChangeText={setPassword}
             style={styles.textInput}
