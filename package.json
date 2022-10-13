@@ -7,7 +7,11 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "build-abb": "cd android && ./gradlew bundleRelease",
+    "build-apk": "cd android && ./gradlew assembleRelease",
+    "code-push-release-product": "appcenter codepush release-react -a pvhaicmcglobal-gmail.com/beaver-life -d Production",
+    "code-push-release-staging": "appcenter codepush release-react -a pvhaicmcglobal-gmail.com/beaver-life -d Staging"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^4.4.4",

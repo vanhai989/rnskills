@@ -73,7 +73,7 @@ const WellComeScreen = () => {
   //     </View>
   //   </ImageBackground>
   // );
-  return <Text>hello</Text>
+  return <Text>Hello world!</Text>
 };
 
 export default WellComeScreen;

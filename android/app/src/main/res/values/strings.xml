@@ -2,7 +2,8 @@
     <string name="app_name">rnskillss</string>
     <string name="appCenterCrashes_whenToSendCrashes" moduleConfig="true" translatable="false">DO_NOT_ASK_JAVASCRIPT</string>
     <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
-   
-    <string name="CodePushDeploymentKey" moduleConfig="true">LjHOX0ffXmsypSoyLDul3FCseAP1WdqYlPF6Q</string>  <!-- production -->
-    <!-- <string name="CodePushDeploymentKey" moduleConfig="true">6gZxQYfHUmUHPuQ4npZDoZZvV4n-HmxCnVjBX</string> // staging -->
+   <!-- production -->
+    <string name="CodePushDeploymentKey" moduleConfig="true">LjHOX0ffXmsypSoyLDul3FCseAP1WdqYlPF6Q</string>  
+    <!-- staging -->
+    <!-- <string name="CodePushDeploymentKey" moduleConfig="true">6gZxQYfHUmUHPuQ4npZDoZZvV4n-HmxCnVjBX</string>  -->
 </resources>

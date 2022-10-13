@@ -42,6 +42,7 @@ const LoginScreen = () => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground source={Images.backgroundLogin} style={styles.container}>
+        <Text style={styles.btnText}>The app updated for HoangPM</Text>
         <View style={{flex: 1, justifyContent: 'flex-end', marginBottom: 100}}>
           <Text style={styles.titleTextInput}>Email</Text>
           <TextInput

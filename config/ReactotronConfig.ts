@@ -5,7 +5,7 @@ import {LogBox} from 'react-native';
 LogBox.ignoreAllLogs();
 Reactotron.configure({
   name: 'rnskills',
-  host: '172.16.201.104',
+  host: '172.16.201.124',
   port: 9090,
 });
 
