@@ -15,6 +15,7 @@
 #import <ReactCommon/RCTTurboModuleManager.h>
 
 #import <react/config/ReactNativeConfig.h>
+#import <CodePush/CodePush.h>
 
 static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
@@ -88,6 +89,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
 #else
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+//  return [CodePush bundleURL];
 #endif
 }
 
