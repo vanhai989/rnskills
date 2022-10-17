@@ -6,25 +6,28 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import * as React from 'react';
 import {Images} from '@common';
 import {useDispatch} from 'react-redux';
-import {authActions} from '@store';
+import {appActions, authActions} from '@store';
 import {useNavigation} from '@react-navigation/native';
 
 const RegisterScreen = () => {
   const dispatch = useDispatch();
   const navigation: any = useNavigation();
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [passwordConfirm, setPasswordConfirm] = React.useState('');
 
   const registerSuccess = () => {
+    dispatch(appActions.hideIndicator())
     navigation.goBack();
   };
-  const registerFailed = () => {};
+  const registerFailed = () => {
+    dispatch(appActions.hideIndicator())
+  };
 
   const onSubmit = () => {
     if (!!name && !!email && password && password === passwordConfirm) {
@@ -33,6 +36,7 @@ const RegisterScreen = () => {
         password,
         name,
       };
+      dispatch(appActions.showIndicator())
       dispatch(authActions.register(params, registerSuccess, registerFailed));
     }
   };
@@ -55,12 +59,14 @@ const RegisterScreen = () => {
           />
           <Text style={styles.titleTextInput}>Password</Text>
           <TextInput
+            secureTextEntry={true}
             value={password}
             onChangeText={setPassword}
             style={styles.textInput}
           />
           <Text style={styles.titleTextInput}>Password confirm</Text>
           <TextInput
+            secureTextEntry={true}
             value={passwordConfirm}
             onChangeText={setPasswordConfirm}
             style={styles.textInput}

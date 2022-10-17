@@ -1,17 +1,23 @@
-import {
-  FlatList,
-  Image,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, StyleSheet, Text, ScrollView, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {appActions} from '@store';
 import {useNavigation} from '@react-navigation/native';
-import {Routers} from '@routers';
+import {Images} from '@common';
+import {AppButton, BaseHeader} from '@components';
+import Theme from '../../common/theme';
+import NewItem from './News/NewItem';
+import {FloatingAction} from 'react-native-floating-action';
+import { Routers } from '@routers';
+
+const actions = [
+  {
+    text: 'Accessibility',
+    icon: Images.plusIcon,
+    name: 'Posting',
+    position: 2,
+  },
+];
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -32,16 +38,16 @@ const HomeScreen = () => {
   const getPostFailed = error => {};
 
   useEffect(() => {
-    dispatch(appActions.getUsersRequest(getUserSuccess, getUserFailed));
+    // dispatch(appActions.getUsersRequest(getUserSuccess, getUserFailed));
     dispatch(appActions.getPostsRequest(getPostSuccess, getPostFailed));
-    dispatch(
-      appActions.getPhotosRequest(
-        res => {
-          setPhotos(res);
-        },
-        () => setPhotos([]),
-      ),
-    );
+    // dispatch(
+    //   appActions.getPhotosRequest(
+    //     res => {
+    //       setPhotos(res);
+    //     },
+    //     () => setPhotos([]),
+    //   ),
+    // );
   }, []);
 
   const _renderItem = ({item}) => {
@@ -93,29 +99,23 @@ const HomeScreen = () => {
     }
   };
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.body}>
-        <Text>homeScreen</Text>
-        <TouchableOpacity
-          onPress={() => navigation.navigate(Routers.CreatePost)}>
-          <Text>create post</Text>
-        </TouchableOpacity>
-
-        <View>
-          <Text>list users</Text>
-          <FlatList data={users} renderItem={_renderItem} />
-        </View>
-
-        <View>
-          <Text>list posts</Text>
-          <FlatList data={posts} renderItem={_renderItemPosts} />
-        </View>
-        <View>
-          <Text>list photos</Text>
-          <FlatList data={photos} renderItem={_renderItemPhotos} />
-        </View>
-      </View>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <BaseHeader title="Sharing" backIcon={false} onPress={() => {}} />
+      <ScrollView>
+        <NewItem />
+        <View style={{height: 5, backgroundColor: '#EBEBEB'}} />
+        <NewItem />
+        <View style={{height: 5, backgroundColor: '#EBEBEB'}} />
+      </ScrollView>
+      <FloatingAction
+        actions={actions}
+        onPressItem={name => {
+          if (name == 'Posting') {
+            navigation.navigate(Routers.CreatePost)
+          }
+        }}
+      />
+    </View>
   );
 };
 
@@ -131,5 +131,49 @@ const styles = StyleSheet.create({
   },
   item: {
     marginVertical: 10,
+  },
+  avatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  },
+  wrap_avatar: {
+    flexDirection: 'row',
+    // justifyContent: 'center',
+    alignItems: 'center',
+    // backgroundColor: 'green'
+  },
+  content_image: {
+    width: (Theme.SIZES.WIDTH_SCREEN - 35) / 2,
+    height: 150,
+    marginBottom: 5,
+  },
+  content_image_bottom: {
+    width: (Theme.SIZES.WIDTH_SCREEN - 40) / 3,
+    height: 100,
+  },
+  wrap_title: {
+    marginLeft: 5,
+  },
+  username: {
+    color: '#009FE3',
+  },
+  subject: {
+    color: 'gray',
+  },
+  wrap_subject: {
+    flexDirection: 'row',
+    marginVertical: 10,
+  },
+  subject_content: {
+    color: '#009FE3',
+    overflow: 'hidden',
+    flex: 1,
+  },
+  body_content: {
+    lineHeight: 18,
+  },
+  wrap_images: {
+    marginTop: 10,
   },
 });

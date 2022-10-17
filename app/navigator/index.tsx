@@ -10,6 +10,7 @@ import {isEmpty} from 'lodash';
 import {View} from 'react-native';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {Routers} from '@routers';
+import {AppIndicator} from '@components';
 
 export type RootNavigationParamsList = {
   [Routers.authNavigator]: undefined;
@@ -38,13 +39,14 @@ function AppNavigator() {
             />
           ) : (
             <Stack.Screen
-              name="RootStack"
+              name={Routers.RootStack}
               component={RootStack}
               options={{headerShown: false}}
             />
           )}
         </Stack.Navigator>
       </NavigationContainer>
+      <AppIndicator />
     </View>
   );
 }

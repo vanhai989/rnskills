@@ -5,6 +5,8 @@ import {createReducer, createActions} from 'reduxsauce';
 const {Types, Creators} = createActions({
   startupRequest: null,
   startupSuccess: null,
+  showIndicator: null,
+  hideIndicator: null,
   getUsersRequest: ['resolve', 'reject'],
   createPostRequest: ['payload', 'resolve', 'reject'],
   getPostsRequest: ['resolve', 'reject'],
@@ -18,9 +20,17 @@ export const INITIAL_STATE = {
   user: {},
   isReady: false,
   isShowTabBar: true,
+  isShowingIndicator: false,
 };
 
 /* ------------- Reducers ------------- */
+
+export const showIndicator = (state: any) => {
+  return { ...state, isShowingIndicator: true };
+};
+export const hideIndicator = (state: any) => {
+  return { ...state, isShowingIndicator: false };
+};
 
 export const getUsersRequest = (state: any) => {
   return {...state};
@@ -49,4 +59,6 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.CREATE_POST_REQUEST]: createPostRequest,
   [Types.GET_POSTS_REQUEST]: getPostsRequest,
   [Types.GET_PHOTOS_REQUEST]: getPhotosRequest,
+  [Types.SHOW_INDICATOR]: showIndicator,
+  [Types.HIDE_INDICATOR]: hideIndicator,
 });

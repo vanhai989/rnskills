@@ -87,7 +87,8 @@ function AppTabBottom({state, descriptors, navigation}) {
         accessibilityLabel={options.tabBarAccessibilityLabel}
         testID={options.tabBarTestID}
         onPress={onPress}
-        appStyle="flex1 aliC pt9">
+        appStyle="flex1 aliC"
+        style={{justifyContent: 'center'}}>
         {/* <AppView appStyle="jusC" height={22}>
           {iconApp}
         </AppView> */}
@@ -95,7 +96,7 @@ function AppTabBottom({state, descriptors, navigation}) {
         {/* <AppText appStyle="size12 w500" bound color={fillColor}>
           {label}
         </AppText> */}
-        <Text>{label}</Text>
+        {/* <Text style={{paddingBottom: 5}}>{label}</Text> */}
       </AppButton>
     );
   };
