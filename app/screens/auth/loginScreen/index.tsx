@@ -1,6 +1,7 @@
 import {
   Image,
   ImageBackground,
+  SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
@@ -42,7 +43,8 @@ const LoginScreen = () => {
   return (
     <View style={{flex: 1}}>
       <ImageBackground source={Images.backgroundLogin} style={styles.container}>
-        <Text style={styles.btnText}>The app updated for HoangPM</Text>
+        <Text style={[styles.btnText, {marginTop: 50}]}>The app updated for HoangPM</Text>
+        {/* <Text style={[styles.btnText, {marginTop: 10}]}>The app updated for HaiDev</Text> */}
         <View style={{flex: 1, justifyContent: 'flex-end', marginBottom: 100}}>
           <Text style={styles.titleTextInput}>Email</Text>
           <TextInput

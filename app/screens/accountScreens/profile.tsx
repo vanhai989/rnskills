@@ -35,6 +35,7 @@ console.log('userInfo', userInfo)
 
   const logoutFailed = error => {
     dispatch(appActions.hideIndicator())
+    dispatch(authActions.logoutSuccessRequest())
     console.log('error', error);
   };
 

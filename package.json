@@ -8,6 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "pod-install": "cd ios && arch -x86_64 pod install && cd ..",
     "build-abb": "cd android && ./gradlew bundleRelease",
     "build-apk": "cd android && ./gradlew assembleRelease",
     "code-push-release-product": "appcenter codepush release-react -a pvhaicmcglobal-gmail.com/beaver-life -d Production",
