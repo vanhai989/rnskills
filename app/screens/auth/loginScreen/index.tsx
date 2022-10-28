@@ -1,12 +1,12 @@
 import {
-  Image,
   ImageBackground,
-  SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {Images} from '@common';
@@ -23,28 +23,34 @@ const LoginScreen = () => {
   const [password, setPassword] = useState('');
 
   const loginSuccess = () => {
-    dispatch(appActions.hideIndicator())
+    dispatch(appActions.hideIndicator());
     navigation.navigate(Routers.RootStack);
   };
-  const loginFailed = () => {  dispatch(appActions.hideIndicator())};
+  const loginFailed = () => {
+    dispatch(appActions.hideIndicator());
+  };
 
   const onSubmit = () => {
     const params = {
       email,
       password,
     };
-    dispatch(appActions.showIndicator())
+    dispatch(appActions.showIndicator());
     dispatch(authActions.loginRequest(params, loginSuccess, loginFailed));
   };
 
   useEffect(() => {
-    dispatch(appActions.hideIndicator())
-  }, [])
+    dispatch(appActions.hideIndicator());
+  }, []);
   return (
-    <View style={{flex: 1}}>
+    <KeyboardAvoidingView
+      style={{flex: 1}}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <ImageBackground source={Images.backgroundLogin} style={styles.container}>
-        <Text style={[styles.btnText, {marginTop: 50}]}>The app updated for HoangPM</Text>
-        {/* <Text style={[styles.btnText, {marginTop: 10}]}>The app updated for HaiDev</Text> */}
+        {/* <Text style={[styles.btnText, {marginTop: 50}]}>The app updated for HoangPM</Text> */}
+        <Text style={[styles.btnText, {marginTop: 50}]}>
+          The app updated for HaiDev
+        </Text>
         <View style={{flex: 1, justifyContent: 'flex-end', marginBottom: 100}}>
           <Text style={styles.titleTextInput}>Email</Text>
           <TextInput
@@ -59,12 +65,21 @@ const LoginScreen = () => {
             onChangeText={setPassword}
             style={styles.textInput}
           />
-           <TouchableOpacity
-              onPress={() => navigation.navigate('register')}
-              style={styles.btnOtherAuth}>
-              <Text style={[styles.btnText, {textAlign: 'right', textDecorationLine: 'underline', marginTop: 5}]}>
-                Register</Text>
-            </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('register')}
+            style={styles.btnOtherAuth}>
+            <Text
+              style={[
+                styles.btnText,
+                {
+                  textAlign: 'right',
+                  textDecorationLine: 'underline',
+                  marginTop: 5,
+                },
+              ]}>
+              Register
+            </Text>
+          </TouchableOpacity>
           <View style={styles.wrapperBtn}>
             <TouchableOpacity onPress={onSubmit} style={styles.btnSubmit}>
               <Text style={styles.btnText}>submit</Text>
@@ -72,7 +87,7 @@ const LoginScreen = () => {
           </View>
         </View>
       </ImageBackground>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

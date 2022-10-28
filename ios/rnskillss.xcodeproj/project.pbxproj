@@ -61,6 +61,7 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-rnskillss.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rnskillss.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = rnskillss/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-rnskillss-rnskillssTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnskillss-rnskillssTests.release.xcconfig"; path = "Target Support Files/Pods-rnskillss-rnskillssTests/Pods-rnskillss-rnskillssTests.release.xcconfig"; sourceTree = "<group>"; };
+		B8153D17099485FA92DD1515 /* Pods-rnskillss-rnskillssTests.release staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnskillss-rnskillssTests.release staging.xcconfig"; path = "Target Support Files/Pods-rnskillss-rnskillssTests/Pods-rnskillss-rnskillssTests.release staging.xcconfig"; sourceTree = "<group>"; };
 		CC0846B928E54CE8003E23AC /* launchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchScreen.png; sourceTree = SOURCE_ROOT; };
 		CC7256B128F90D54003FD990 /* AppCenter-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AppCenter-Config.plist"; path = "../AppCenter-Config.plist"; sourceTree = "<group>"; };
 		CCBF0A2F28D576F400DFB1A2 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 		CCBF0A3C28D576F400DFB1A2 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		CCBF0A3D28D576F400DFB1A2 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		CCBF0A3E28D576F400DFB1A2 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		D3863B16EFAF0551C907DB98 /* Pods-rnskillss.release staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnskillss.release staging.xcconfig"; path = "Target Support Files/Pods-rnskillss/Pods-rnskillss.release staging.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -182,6 +184,8 @@
 				5709B34CF0A7D63546082F79 /* Pods-rnskillss.release.xcconfig */,
 				5B7EB9410499542E8C5724F5 /* Pods-rnskillss-rnskillssTests.debug.xcconfig */,
 				89C6BE57DB24E9ADA2F236DE /* Pods-rnskillss-rnskillssTests.release.xcconfig */,
+				D3863B16EFAF0551C907DB98 /* Pods-rnskillss.release staging.xcconfig */,
+				B8153D17099485FA92DD1515 /* Pods-rnskillss-rnskillssTests.release staging.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -818,7 +822,7 @@
 		};
 		CC7256B428F911E5003FD990 /* Release staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-rnskillss.release.xcconfig */;
+			baseConfigurationReference = D3863B16EFAF0551C907DB98 /* Pods-rnskillss.release staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -843,7 +847,7 @@
 		};
 		CC7256B528F911E5003FD990 /* Release staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-rnskillss-rnskillssTests.release.xcconfig */;
+			baseConfigurationReference = B8153D17099485FA92DD1515 /* Pods-rnskillss-rnskillssTests.release staging.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;

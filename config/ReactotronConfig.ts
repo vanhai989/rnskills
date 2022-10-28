@@ -5,7 +5,7 @@ import {LogBox} from 'react-native';
 LogBox.ignoreAllLogs();
 Reactotron.configure({
   name: 'rnskills',
-  host: '172.16.201.152',
+  host: '192.168.1.8',
   port: 9090,
 });
 
@@ -24,7 +24,7 @@ Reactotron.use(reduxPlugin());
 
 if (__DEV__) {
   console.log('__DEV__', __DEV__);
-  
+
   Reactotron.connect();
   Reactotron.clear();
 }
