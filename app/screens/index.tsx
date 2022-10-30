@@ -4,6 +4,7 @@ import HomeScreen from './app/homeScreen';
 import LoginScreen from './auth/loginScreen';
 import RegisterScreen from './auth/registerScreen';
 import WellComeScreen from './auth/wellComeScreen';
+import VideoCall from './app/videoCall';
 
 export {
   ProfileScreen,
@@ -12,4 +13,5 @@ export {
   LoginScreen,
   RegisterScreen,
   WellComeScreen,
+  VideoCall,
 };

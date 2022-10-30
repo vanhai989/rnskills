@@ -15,6 +15,12 @@ const actions = [
     text: 'Accessibility',
     icon: Images.plusIcon,
     name: 'Posting',
+    position: 1,
+  },
+  {
+    text: 'Video call',
+    icon: Images.plusIcon,
+    name: 'VideoCall',
     position: 2,
   },
 ];
@@ -112,6 +118,8 @@ const HomeScreen = () => {
         onPressItem={name => {
           if (name == 'Posting') {
             navigation.navigate(Routers.CreatePost)
+          } else if (name == 'VideoCall') {
+            navigation.navigate(Routers.VideoCall)
           }
         }}
       />

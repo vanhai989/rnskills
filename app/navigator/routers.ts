@@ -6,4 +6,5 @@ export const Routers = {
   authNavigator: 'authNavigator' as 'authNavigator',
   RootStack: 'RootStack' as 'RootStack',
   CreatePost: 'CreatePost' as 'CreatePost',
+  VideoCall: 'VideoCall' as 'VideoCall',
 };
